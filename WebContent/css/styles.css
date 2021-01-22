@@ -1,0 +1,38 @@
+body{
+	overflow-x:hidden;
+	
+}
+#footer{
+	
+	width:100vw;
+	background-color:#222831;
+	color:#fff;
+	
+}
+.footerBlocks{
+	
+	padding:10px 20px 20px 20px;
+	
+}
+.footerHeading{
+	font-size:20px;
+	font-weight:500;
+	text-align:center;
+}
+.subheading{
+	line-height:1.5;
+}
+.subheading a{
+	text-decoration:none;
+}
+.Address{
+	color:#dddddd;
+}
+#adminLoginForm{
+	position:absolute;
+	top:50%;
+	left:50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}

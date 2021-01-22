@@ -1,0 +1,50 @@
+body{
+
+    overflow-x:hidden;
+
+}
+#admissionForm{
+    border-style: solid;
+    border-width:2px;
+    border-color:grey;
+    border-radius:5px;
+    padding-left:12vw;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    margin:50px 150px;
+    background-color: #fff;
+}
+#admissionForm input,#admissionForm select{
+    margin-bottom:10px;
+    width:250px;
+}
+    
+.tab2{
+    display: none;
+}
+.submitBtn{
+    position:absolute;
+    right:25%;
+    margin-bottom:30px;
+}
+#admissionForm .next,#admissionForm .submitBtn{
+    background-color: #bbbbbb;
+    padding:5px 35px;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 5px;
+    border-style: none;
+}
+#admissionForm .next:hover{
+    background-color: #000;
+    color:#fff;
+    
+}
+#admissionForm .submitBtn:hover{
+    background-color: #61b15a;
+    color:#fff;
+}
+.required-mark{
+    color:red;
+    margin-left: 2px;
+}
