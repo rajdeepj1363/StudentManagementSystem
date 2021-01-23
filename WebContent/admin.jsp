@@ -10,8 +10,8 @@
 <body>
 <div id="adminLoginForm">
 	<form action="checkAdmin" method="post">
-		<input type="text" placeholder="Enter Username" required><br>
-		<input type="password" placeholder="Enter Password" required><br>
+		<input type="text" name="adminUsername" placeholder="Enter Username" required><br>
+		<input type="password" name="adminPwd" placeholder="Enter Password" required><br>
 		<button type="submit">Login</button>
 	</form>
 </div>

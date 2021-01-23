@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>StudentManagementSystem</display-name>
-  
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
     <servlet-name>verify</servlet-name>
     <servlet-class>com.students.Controller.Verify</servlet-class>
@@ -14,7 +12,6 @@
     <servlet-name>verify</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>admission</servlet-name>
     <servlet-class>com.students.Controller.Register</servlet-class>
@@ -23,13 +20,28 @@
     <servlet-name>admission</servlet-name>
     <url-pattern>/admissionForm</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>checkAdmin</servlet-name>
-    <servlet-class>com.students..Register</servlet-class>
+    <servlet-class>com.students.Controller.AdminCheck</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>checkAdmin</servlet-name>
     <url-pattern>/AdminLogin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ViewAdmissionDetails</servlet-name>
+    <servlet-class>com.students.Controller.FetchAdmissionInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewAdmissionDetails</servlet-name>
+    <url-pattern>/verifyCandidate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>verifyCandidate</servlet-name>
+    <servlet-class>com.students.Controller.VerifyCandidate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>verifyCandidate</servlet-name>
+    <url-pattern>/candidateVerified</url-pattern>
   </servlet-mapping>
 </web-app>
