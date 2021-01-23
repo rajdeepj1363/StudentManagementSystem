@@ -15,7 +15,7 @@ import com.students.sql.*;
 /**
  * Servlet implementation class VerifyCandidate
  */
-@WebServlet("/VerifyCandidate")
+@WebServlet("/verifyCandidate")
 public class VerifyCandidate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
@@ -23,12 +23,13 @@ public class VerifyCandidate extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		String email = request.getParameter("candidate_email");
+		System.out.println("Candidate's Email: "+ email);
 		try
 		{
 			ConnectionDB.getConnection();
 			Statement st = ConnectionDB.con.createStatement();
-			ResultSet res = st.executeQuery("UPDATE admissiondata SET verification = 'DONE' WHERE email='"+email+"'");
-			response.sendRedirect("admin.jsp?"+email+"=verified");
+			st.executeUpdate("UPDATE admissiondata SET verification = 'DONE' WHERE email='"+email+"'");
+			response.sendRedirect("dashboardAdmin.jsp?"+email+"=verified");
 		}
 		catch(ClassNotFoundException e)
 		{

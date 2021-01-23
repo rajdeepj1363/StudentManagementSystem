@@ -98,7 +98,8 @@
         <a href=<%out.print("uploaded_files/12thMarksheet/"+obj.getUp_twelve()); %> target="_blank">Click Here</a><br>
     </div>
     <button class="next" type="button">NEXT</button>
-    <form action="verifyCandidate" method="post">
+    
+    <form action="verifyCandidate" method="post" style="display:inline">
     	<input type="text" name="candidate_email" value=<%out.print(obj.getEmail()); %> hidden>
     	<button class="verifyCandidateBtn" type="submit">VERIFY</button>
     </form>

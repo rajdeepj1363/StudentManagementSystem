@@ -34,8 +34,9 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>ViewAdmissionDetails</servlet-name>
-    <url-pattern>/verifyCandidate</url-pattern>
+    <url-pattern>/viewCandidateInfo</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>verifyCandidate</servlet-name>
     <servlet-class>com.students.Controller.VerifyCandidate</servlet-class>
