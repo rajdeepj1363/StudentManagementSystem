@@ -22,11 +22,18 @@
 <body>
 <%@ page import="com.students.POJO.AdmissionInfo" %>
 <%
+	if(session.getAttribute("AdminUsername") == null)
+	{
+		response.sendRedirect("admin.jsp");
+	}
+	response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+	
 	if(request.getAttribute("admissionInfo")  == null)
 	{
 		response.sendRedirect("admin.jsp?error");
 	}
 	AdmissionInfo obj = (AdmissionInfo)request.getAttribute("admissionInfo");
+	
 	
 %>
 <div id="admissionForm">
@@ -89,18 +96,20 @@
     <div class="tab2">
         <h1>UPLOAD DOCUMENTS</h1>
         <label>Aadhar Card</label><span class="required-mark">*</span><br>
-        <a href=<%out.print("uploaded_files/aadhar/"+obj.getUp_aadhar()); %> target="_blank">Click Here</a><br>
+        <a href="uploads\aadhar\Rajdeep5574805Jadhavaadhar.jpg" target="_blank">Click Here</a><br>
+        <a href=<%System.out.println(obj.getUp_aadhar());out.print("uploads/aadhar/"+obj.getUp_aadhar()); %> target="_blank">Click Here</a><br>
         <label>PAN Card</label><span class="required-mark">*</span><br>
-        <a href=<%out.print("uploaded_files/pan/"+obj.getUp_PAN()); %> target="_blank">Click Here</a><br>
+        <a href=<%out.print("uploads/pan/"+obj.getUp_PAN()); %> target="_blank">Click Here</a><br>
         <label>10th Marksheet</label><span class="required-mark">*</span><br>
-        <a href=<%out.print("uploaded_files/10thMarksheet/"+obj.getUp_tenth()); %> target="_blank">Click Here</a><br>
+        <a href=<%out.print("uploads/10thMarksheet/"+obj.getUp_tenth()); %> target="_blank">Click Here</a><br>
         <label>12th Marksheet</label><span class="required-mark">*</span><br>
-        <a href=<%out.print("uploaded_files/12thMarksheet/"+obj.getUp_twelve()); %> target="_blank">Click Here</a><br>
+        <a href=<%out.print("uploads/12thMarksheet/"+obj.getUp_twelve()); %> target="_blank">Click Here</a><br>
     </div>
     <button class="next" type="button">NEXT</button>
     
     <form action="verifyCandidate" method="post" style="display:inline">
     	<input type="text" name="candidate_email" value=<%out.print(obj.getEmail()); %> hidden>
+    	<%session.setAttribute("AdmissionData", obj); %>
     	<button class="verifyCandidateBtn" type="submit">VERIFY</button>
     </form>
     

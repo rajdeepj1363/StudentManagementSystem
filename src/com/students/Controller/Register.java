@@ -104,26 +104,30 @@ public class Register extends HttpServlet {
 					{
 						if(i == 21)
 						{
-							uniqName = uniqName+"aadhar"+".jpg";
-							fileItem.write(new File("C:\\Users\\Rajdeep\\workspace\\StudentManagementSystem\\WebContent\\uploaded_files\\aadhar\\"+uniqName));
+							uniqName = (uniqName+"aadhar"+".jpg").replaceAll("\\s", "");
+							
+							fileItem.write(new File("C:\\Users\\Rajdeep\\workspace\\StudentManagementSystem\\WebContent\\uploads\\aadhar\\"+uniqName));
 							userFormFields[21] = uniqName;
 						}
 						if(i == 22)
 						{
-							uniqName = uniqName+"PAN"+".jpg";
-							fileItem.write(new File("C:\\Users\\Rajdeep\\workspace\\StudentManagementSystem\\WebContent\\uploaded_files\\pan\\"+uniqName));
+							uniqName = (uniqName+"PAN"+".jpg").replaceAll("\\s", "");
+							
+							fileItem.write(new File("C:\\Users\\Rajdeep\\workspace\\StudentManagementSystem\\WebContent\\uploads\\pan\\"+uniqName));
 							userFormFields[22] = uniqName;
 						}
 						if(i == 23)
 						{
-							uniqName = uniqName+"10th"+".jpg";
-							fileItem.write(new File("C:\\Users\\Rajdeep\\workspace\\StudentManagementSystem\\WebContent\\uploaded_files\\10thMarksheet\\"+uniqName));
+							uniqName = (uniqName+"10th"+".jpg").replaceAll("\\s", "");
+							
+							fileItem.write(new File("C:\\Users\\Rajdeep\\workspace\\StudentManagementSystem\\WebContent\\uploads\\10thMarksheet\\"+uniqName));
 							userFormFields[23] = uniqName;
 						}
 						if(i == 24)
 						{
-							uniqName = uniqName+"12th"+".jpg";
-							fileItem.write(new File("C:\\Users\\Rajdeep\\workspace\\StudentManagementSystem\\WebContent\\uploaded_files\\12thMarksheet\\"+uniqName));
+							uniqName = (uniqName+"12th"+".jpg").replaceAll("\\s", "");
+							
+							fileItem.write(new File("C:\\Users\\Rajdeep\\workspace\\StudentManagementSystem\\WebContent\\uploads\\12thMarksheet\\"+uniqName));
 							userFormFields[24] = uniqName;
 						}
 						
