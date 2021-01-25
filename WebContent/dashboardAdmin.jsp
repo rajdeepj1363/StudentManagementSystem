@@ -18,10 +18,12 @@
 
 </head>
 <style>
-	.admission_form_toggle:hover{
+	.admission_form_toggle:hover,.teacher_form_toggle:hover{
         cursor:pointer;
     }
+    
     #admissionVerify{
+    	background-color:#fff;
         position:absolute;
         top:50%;
         left:50%;
@@ -31,8 +33,30 @@
         padding:50px;
         border-style:solid;
         border-width:3px;
+         z-index:9999;
+    }
+      #insertTeacher{
+      	background-color:#fff;
+        position:absolute;
+        top:50%;
+        left:50%;
+        -ms-transform: translateX(-50%) translateY(-50%);
+   	    -webkit-transform: translate(-50%,-50%);
+   	    transform: translate(-50%,-50%);
+        padding:50px;
+        border-style:solid;
+        border-width:3px;
+        z-index:9999;
+    }
+    #insertTeacher input{
+    	margin:5px auto;
     }
     .close_box{
+        position:absolute;
+        top:5%;
+        right:2%;
+    }
+    .close_box2{
         position:absolute;
         top:5%;
         right:2%;
@@ -51,6 +75,32 @@
     <button class="close_box" type="button">X</button>
     <input type="text" placeholder="Enter candidate's Email" name="candidate_email" required>
     <button name="verifyCandidate">CHECK</button>
+</form>
+<form id="insertTeacher" action="AddTeacher" method="post" style="display:none">
+    <button class="close_box2" type="button">X</button>
+    <div class="row">
+    	<div class="col-6">
+    	<input type="text" placeholder="Enter Name" name="teacher_name" required><br>
+   		 <input type="text" placeholder="Enter Mobile" name="teacher_mobile" required><br>
+    	</div>
+    	<div class="col-6">
+    	 <input type="text" placeholder="Enter Email" name="teacher_email" required><br>
+    <input type="text" placeholder="Enter Address" name="teacher_address" required><br>
+    	</div>
+    	<div class="col-6">
+    	<input type="text" placeholder="Enter Date of Birth" name="teacher_dob" required><br>
+    <input type="text" placeholder="Enter Qualification" name="teacher_qualification" required><br>
+    	</div>
+    	<div class="col-6">
+    	<input type="text" placeholder="Enter Designation" name="teacher_designation" required><br>
+    <input type="text" placeholder="Enter Class Teacher Div" name="teacher_classTeacher" required><br>
+    	</div>
+    	<div class="col-6">
+    	<input type="text" placeholder="Enter Teaching Div" name="teacher_divisions" required><br>
+    	<input type="text" placeholder="Enter Teaching Subjects" name="teacher_subjects" required><br>
+    	</div>
+    </div>
+   <button name="verifyCandidate">INSERT</button>
 </form>
 <section id="NavigationBar">
 	
@@ -74,7 +124,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item admission_form_toggle">Admissions</a></li>
-            <li><a class="dropdown-item" href="#">Events</a></li>
+            <li><a class="dropdown-item teacher_form_toggle">Add Teacher</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Results</a></li>
           </ul>
@@ -120,6 +170,12 @@
     });
     document.querySelector(".close_box").addEventListener("click",function(){
         document.querySelector("#admissionVerify").style.display="none";
-    })
+    });
+    document.querySelector(".teacher_form_toggle").addEventListener("click",function(){
+        document.querySelector("#insertTeacher").style.display="block";
+    });
+    document.querySelector(".close_box2").addEventListener("click",function(){
+        document.querySelector("#insertTeacher").style.display="none";
+    });
 </script>
 </html>

@@ -46,6 +46,18 @@
       	position:fixed;
       	top:0;
       }
+      .StudentLoginBtn,.TeacherLoginBtn{
+     	margin:5px auto 20px auto;	
+     }
+     .StudentLoginBtn button,.TeacherLoginBtn button{
+     	border-style:none;
+     	background-color:#f5f5f5;
+     	font-weight:600;
+     	font-size:24px;
+     	border-radius:5px;
+     }
+    
+     
     </style>
 
     
@@ -65,12 +77,21 @@
     
     
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+    <div class="row toggleClass">
+    	<div class="col-6 StudentLoginBtn">
+    		<button type = "button" id="student">Student</button>
+    	</div>
+    	<div class="col-6 TeacherLoginBtn">
+    		<button type = "button" id="teacher">Teacher</button>
+    	</div>
+    </div>
     <label for="inputEmail" class="visually-hidden">Email address</label>
     <input name = "email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
     <label for="inputPassword" class="visually-hidden">Password</label>
     <input name = "pwd" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 	<br>
 	<input name = "var" type="number" hidden value=0>
+	<input type="text" name="student_teacher" value="student" hidden>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
     
   </form>
@@ -79,6 +100,7 @@
 
     
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script type="text/javascript">
   	document.onload = function(){
   		if(document.querySelector("input[name=var]").value == 1)
@@ -87,6 +109,39 @@
   			}
   	}
   </script>
+  <script type="text/javascript">
+    if(document.querySelector("input[name=student_teacher").value==="student")
+    {
+        $("#student").css("background-color","green");
+        $("#teacher").css("background-color","#f5f5f5");
+        $("#student").css("color","#fff");
+    }
+    if(document.querySelector("input[name=student_teacher").value==="teacher"){
+        $("#teacher").css("background-color","green");
+        $("#student").css("background-color","#f5f5f5");
+        $("#teacher").css("color","#fff");
+       
+    }
+    document.querySelector("#student").addEventListener("click",function(){
+        console.log("Student activated");
+        document.querySelector("input[name=student_teacher").value="student";
+        console.log(document.querySelector("input[name=student_teacher").value);
+        $("#student").css("background-color","green");
+        $("#student").css("color","#fff");
+        $("#teacher").css("background-color","#f5f5f5");
+        $("#teacher").css("color","#000");
+    });
+    document.querySelector("#teacher").addEventListener("click",function(){
+        console.log("Teacher activated");
+        document.querySelector("input[name=student_teacher").value="teacher";
+        console.log(document.querySelector("input[name=student_teacher").value);
+        $("#teacher").css("background-color","green");
+        $("#teacher").css("color","#fff");
+        $("#student").css("background-color","#f5f5f5");
+        $("#student").css("color","#000");
+       
+    });
+</script>
 
 </html>
     

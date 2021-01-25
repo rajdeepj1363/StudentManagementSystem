@@ -36,7 +36,6 @@
     <servlet-name>ViewAdmissionDetails</servlet-name>
     <url-pattern>/viewCandidateInfo</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>verifyCandidate</servlet-name>
     <servlet-class>com.students.Controller.VerifyCandidate</servlet-class>
@@ -44,5 +43,13 @@
   <servlet-mapping>
     <servlet-name>verifyCandidate</servlet-name>
     <url-pattern>/candidateVerified</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddTeacher</servlet-name>
+    <servlet-class>com.students.Controller.AddTeacher</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddTeacher</servlet-name>
+    <url-pattern>/FacultyUpdated</url-pattern>
   </servlet-mapping>
 </web-app>
