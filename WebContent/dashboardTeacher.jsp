@@ -5,7 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Dashboard</title>
-
 <!-- Bootstrap CSS Link CDN -->
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -15,30 +14,28 @@
 <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-
 </head>
 <body>
 <%
-	if(session.getAttribute("email") == null && session.getAttribute("user").equals("student"))
+	if(session.getAttribute("TeacherEmail") == null && session.getAttribute("user").equals("teacher"))
 	{
 		response.sendRedirect("index.jsp");
 	}
 	response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
 	
 %>
-
 <section id="NavigationBar">
 	
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="dashboard.jsp"><img src="favicons/favicon.ico"></a>
+    <a class="navbar-brand" href="dashboardTeacher.jsp"><img src="favicons/favicon.ico"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="dashboard.jsp">Home</a>
+          <a class="nav-link active" aria-current="page" href="dashboardTeacher.jsp">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="information.jsp">Information</a>
@@ -48,8 +45,8 @@
             Others
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="ViewAttendance.jsp">View Attendance</a></li>
-            <li><a class="dropdown-item" href="#">View Result</a></li>
+            <li><a class="dropdown-item" href="attendance.jsp">Upload Attendance</a></li>
+            <li><a class="dropdown-item" href="result.jsp">Upload Result</a></li>
             
           </ul>
         </li>
@@ -83,10 +80,7 @@
 	
 	</div>
 </section>
-
-	
 </body>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
 </html>

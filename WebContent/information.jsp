@@ -38,6 +38,21 @@
 	//HashMap<String,String> result = FetchInfo.fetchInfo(email);
 	System.out.println("Im jsp\n Hello"+obj.getName());
 %>
+<form id="editInfo" action="editInfo" method="post" style="display:none;background-color:white">
+	<div style="background-color:white">
+		<button id="closeBtn" type="button">X</button>
+		<input type="text" name="email" value=<%out.print(obj.getEmail()); %> hidden>
+		<input type="text" name="mobile" placeholder="Enter your mobile number" value=<%out.print(obj.getPhone()); %>><br>
+		<input type="text" name="father_name" placeholder="Enter your father's name" value=<%out.print(obj.getFatherName()); %>><br>
+		<input type="text" name="fOccupation" placeholder="Enter your father's occupation" value=<%out.print(obj.getfOccupation()); %>><br>
+		<input type="text" name="mother_name" placeholder="Enter your mother's name" value=<%out.print(obj.getMotherName()); %>><br>
+		<input type="text" name="mOccupation" placeholder="Enter your mother's occupation" value=<%out.print(obj.getmOccupation()); %>><br>
+		<input type="text" name="address" placeholder="Enter your address" value=<%out.print(obj.getAddress());%> ><br>
+		<button type="submit">DONE</button>		
+	</div>
+
+</form>
+<div id="wrapper">
 <section id="NavigationBar">
 	
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -59,10 +74,8 @@
             Others
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">News</a></li>
-            <li><a class="dropdown-item" href="#">Events</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Results</a></li>
+            <li><a class="dropdown-item" href="#">View Attendance</a></li>
+            <li><a class="dropdown-item" href="#">View Result</a></li>
           </ul>
         </li>
        
@@ -81,7 +94,6 @@
             <h5>ADDRESS: <%out.print(obj.getAddress()); %></h5>
             <h5>PHONE NO: <%out.print(obj.getPhone()); %></h5>
             <h5>DOB: <%out.print(obj.getDob()); %></h5>
-            <h5>AADHAR NO: <%out.print(obj.getAadhar()); %></h5> 
 	</div>
 	<hr>
     <div class="parentinfo">
@@ -89,7 +101,7 @@
         <h6>OCCUPATION: <%out.print(obj.getfOccupation()); %></h6>
         <h5>MOTHER'S NAME: <%out.print(obj.getMotherName()); %></h5>
         <h6>OCCUPATION: <%out.print(obj.getmOccupation()); %></h6>
-        <h5>ADDRESS: <%out.print(obj.getParentAdd()); %></h5>
+        <h5>PARENT PHONE: <%out.print(obj.getParentPhone()); %></h5>
        
 	</div>
 	<hr>
@@ -98,8 +110,10 @@
         <h5>CURRENT YEAR: <%out.print(obj.getCurrentSTD()); %></h5>
         <h5>CURRENT ROLL NO: <%out.print(obj.getRollNo()); %></h5>
 	</div>
-	
+	<button type="button" class="editInfoBtn">EDIT INFO</button>
 </section>
+
+
 
 <section id="footer">
 	
@@ -121,6 +135,19 @@
 	
 	</div>
 </section>
+</div>
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script type="text/javascript">
+	document.querySelector(".editInfoBtn").addEventListener("click",function(){
+		document.querySelector("#editInfo").style.display = "block";
+		//document.querySelector("#wrapper").style.opacity = "0.1";
+	});
+	document.querySelector("#closeBtn").addEventListener("click",function(){
+		document.querySelector("#editInfo").style.display = "none";
+		//document.querySelector("#wrapper").style.opacity = "1";
+	});
+
+</script>
 </html>

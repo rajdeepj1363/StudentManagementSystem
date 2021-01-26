@@ -36,3 +36,68 @@ body{
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
 }
+#infoBox{
+	margin:auto 100px;
+	padding:30px;
+}
+.editInfoBtn
+{
+		border-style:none;
+     	background-color:#ec4646;
+     	font-weight:600;
+     	font-size:24px;
+     	border-radius:5px;
+     	color:white;
+     	margin:10px auto;
+}
+#editInfo{
+	
+   	overflow:auto;
+	position:absolute;
+	top:50%;
+	left:50%;
+	-ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+   
+    
+}
+#editInfo div
+{
+	
+	background-color:#fff;
+    padding:20px;
+}
+#editInfo input,#editInfo button{
+	margin:5px;
+}
+#editInfo #closeBtn{
+	position:absolute;
+	top:0;
+	right:0;
+}
+#attendanceMain{
+    position:absolute;
+    top:50%;
+    left:50%;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    border-style:solid;
+    border-width:2px;
+    border-radius: 5px;
+}
+#attendanceMain form{
+    padding:20px;
+}
+#attendanceMain form select,#attendanceMain form input{
+    width:200px;
+    margin-bottom: 15px;
+}
+#attendanceMain form button{
+    border-style:none;
+    border-radius:10px;
+    background-color: #12d1b1;
+    color:#fff;
+    padding:5px 20px;
+}

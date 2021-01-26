@@ -2,6 +2,7 @@ package com.students.Controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,6 +38,10 @@ public class AddTeacher extends HttpServlet {
 		try
 		{
 			ConnectionDB.getConnection();
+			Statement st = ConnectionDB.con.createStatement();
+			st.executeUpdate("INSERT INTO teachers(name,mobile,address,dob,qualification,designation,classTeacher,teachingDivisions,teachingSubjects,uname,pwd) VALUES('"+name+"','"+mobile+"','"+address+"','"+dob+"','"+qualification+"','"+designation+"','"+classTeacher+"','"+teachingDivisions+"','"+teachingSubjects+"','"+email+"','"+pwd+"')");
+			System.out.println("Faculty Updated!");
+			response.sendRedirect("dashboardAdmin.jsp?FacultyAdded=success");
 		}
 		catch(SQLException s)
 		{

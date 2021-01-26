@@ -18,11 +18,11 @@
 
 </head>
 <style>
-	.admission_form_toggle:hover,.teacher_form_toggle:hover{
+	.admission_form_toggle:hover,.teacher_form_toggle:hover,.deleteStudent:hover,.deleteTeacher:hover{
         cursor:pointer;
     }
     
-    #admissionVerify{
+    #admissionVerify,#deletionBox{
     	background-color:#fff;
         position:absolute;
         top:50%;
@@ -51,18 +51,21 @@
     #insertTeacher input{
     	margin:5px auto;
     }
-    .close_box{
+    .close_box,.close_box2{
         position:absolute;
         top:5%;
         right:2%;
     }
-    .close_box2{
-        position:absolute;
+    #closeDelBox{
+    position:absolute;
         top:5%;
         right:2%;
     }
+    
+    
 </style>
 <body>
+
 <%
 	if(session.getAttribute("AdminUsername") == null)
 	{
@@ -76,6 +79,15 @@
     <input type="text" placeholder="Enter candidate's Email" name="candidate_email" required>
     <button name="verifyCandidate">CHECK</button>
 </form>
+
+<form id="deletionBox" action="AdminFunctions" method="post" style="display:none">
+    <button id="closeDelBox" type="button">X</button>
+    <input type="text" placeholder="Enter candidate's Email" name="email" required>
+    <input type="text" name="user" value="" hidden>
+    <input type="text" name="function" value="del" hidden>
+    <button name="deleteUser" type="button">DELETE</button>
+</form>
+
 <form id="insertTeacher" action="AddTeacher" method="post" style="display:none">
     <button class="close_box2" type="button">X</button>
     <div class="row">
@@ -88,8 +100,9 @@
     <input type="text" placeholder="Enter Address" name="teacher_address" required><br>
     	</div>
     	<div class="col-6">
-    	<input type="text" placeholder="Enter Date of Birth" name="teacher_dob" required><br>
-    <input type="text" placeholder="Enter Qualification" name="teacher_qualification" required><br>
+    	<label>Date of Birth</label><br>
+    	<input type="date" placeholder="Enter Date of Birth" name="teacher_dob" required><br>
+    	<input type="text" placeholder="Enter Qualification" name="teacher_qualification" required><br>
     	</div>
     	<div class="col-6">
     	<input type="text" placeholder="Enter Designation" name="teacher_designation" required><br>
@@ -106,14 +119,14 @@
 	
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="dashboard.jsp"><img src="favicons/favicon.ico"></a>
+    <a class="navbar-brand" href="dashboardAdmin.jsp"><img src="favicons/favicon.ico"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="dashboard.jsp">Home</a>
+          <a class="nav-link active" aria-current="page" href="dashboardAdmin.jsp">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Information</a>
@@ -124,9 +137,12 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item admission_form_toggle">Admissions</a></li>
-            <li><a class="dropdown-item teacher_form_toggle">Add Teacher</a></li>
+            <li><form class="dropdown-item editInfo" action="EditInfo.jsp" method="post"><input type="text" name="user" value="student" hidden><button style="background-color:white;border-style:none;">Edit Student Info</button></form></li>
+            <li><a class="dropdown-item deleteStudent" >Delete Student Data</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Results</a></li>
+             <li><a class="dropdown-item teacher_form_toggle">Add Teacher</a></li>
+            <li><form class="dropdown-item editInfo" action="EditInfo.jsp" method="post"><input type="text" name="user" value="teacher" hidden><button style="background-color:white;border-style:none;">Edit Teacher Info</button></form></li>
+            <li><a class="dropdown-item deleteTeacher" >Delete Teacher Data</a></li>
           </ul>
         </li>
        
@@ -162,20 +178,10 @@
 
 	
 </body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/javascript">
 <script type="text/javascript">
-    document.querySelector(".admission_form_toggle").addEventListener("click",function(){
-        document.querySelector("#admissionVerify").style.display="block";
-    });
-    document.querySelector(".close_box").addEventListener("click",function(){
-        document.querySelector("#admissionVerify").style.display="none";
-    });
-    document.querySelector(".teacher_form_toggle").addEventListener("click",function(){
-        document.querySelector("#insertTeacher").style.display="block";
-    });
-    document.querySelector(".close_box2").addEventListener("click",function(){
-        document.querySelector("#insertTeacher").style.display="none";
-    });
+    
 </script>
 </html>

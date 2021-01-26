@@ -47,20 +47,19 @@ public class FetchInfo {
 			while(result.next())
 			{
 
-				student.setName(result.getString("name"));
-				student.setAddress(result.getString("address"));
+				student.setName(result.getString("fname")+" "+result.getString("mname")+" "+result.getString("lname"));
+				student.setAddress(result.getString("cAddress"));
 				student.setEmail(result.getString("email"));
-				student.setPhone(result.getString("phone"));
+				student.setPhone(result.getString("mobile"));
 				student.setDob(result.getString("dob"));
-				student.setAadhar(result.getString("aadhar"));
-				student.setFatherName(result.getString("fatherName"));
+				student.setFatherName(result.getString("father_name"));
 				student.setfOccupation(result.getString("fOccupation"));
-				student.setMotherName(result.getString("motherName"));
+				student.setMotherName(result.getString("mother_name"));
 				student.setmOccupation(result.getString("mOccupation"));
-				student.setParentAdd(result.getString("parentAdd"));
+				student.setParentPhone(result.getString("parent_phone"));
 				student.setPRN(result.getString("PRN"));
-				student.setCurrentSTD(result.getString("currentSTD"));
-				student.setRollNo(result.getString("RollNo"));
+				student.setCurrentSTD(result.getString("CURR_YEAR")+" "+result.getString("CURR_DIV"));
+				student.setRollNo(result.getString("CURR_ROLL"));
 				
 			}
 			System.out.println(student);

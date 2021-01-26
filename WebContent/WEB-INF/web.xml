@@ -52,4 +52,30 @@
     <servlet-name>AddTeacher</servlet-name>
     <url-pattern>/FacultyUpdated</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>editInfo</servlet-name>
+    <servlet-class>com.students.Controller.EditInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editInfo</servlet-name>
+    <url-pattern>/InformationUpdate</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AdminFunctions</servlet-name>
+    <servlet-class>com.students.Controller.AdminFunctions</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminFunctions</servlet-name>
+    <url-pattern>/adminfunction</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>TeacherFunction</servlet-name>
+    <servlet-class>com.students.Controller.TeacherFunctions</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TeacherFunction</servlet-name>
+    <url-pattern>/teacherfunction</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

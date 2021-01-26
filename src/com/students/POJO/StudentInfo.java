@@ -16,7 +16,7 @@ public class StudentInfo {
 	private String fOccupation;
 	private String motherName;
 	private String mOccupation;
-	private String parentAdd;
+	private String parentPhone;
 	private String PRN;
 	private String currentSTD;
 	private String RollNo;
@@ -80,11 +80,11 @@ public class StudentInfo {
 	public void setmOccupation(String mOccupation) {
 		this.mOccupation = mOccupation;
 	}
-	public String getParentAdd() {
-		return parentAdd;
+	public String getParentPhone() {
+		return parentPhone;
 	}
-	public void setParentAdd(String parentAdd) {
-		this.parentAdd = parentAdd;
+	public void setParentPhone(String parentPhone) {
+		this.parentPhone = parentPhone;
 	}
 	public String getPRN() {
 		return PRN;
