@@ -68,8 +68,7 @@
     <servlet-name>AdminFunctions</servlet-name>
     <url-pattern>/adminfunction</url-pattern>
   </servlet-mapping>
-  
-   <servlet>
+  <servlet>
     <servlet-name>TeacherFunction</servlet-name>
     <servlet-class>com.students.Controller.TeacherFunctions</servlet-class>
   </servlet>
@@ -78,4 +77,12 @@
     <url-pattern>/teacherfunction</url-pattern>
   </servlet-mapping>
   
+    <servlet>
+    <servlet-name>ResultUpload</servlet-name>
+    <servlet-class>com.students.Controller.ResultUpload</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResultUpload</servlet-name>
+    <url-pattern>/result</url-pattern>
+  </servlet-mapping>
 </web-app>

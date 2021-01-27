@@ -76,7 +76,7 @@ body{
 	top:0;
 	right:0;
 }
-#attendanceMain{
+#attendanceMain,#resultMain{
     position:absolute;
     top:50%;
     left:50%;
@@ -87,14 +87,14 @@ body{
     border-width:2px;
     border-radius: 5px;
 }
-#attendanceMain form{
+#attendanceMain form,#resultMain form{
     padding:20px;
 }
-#attendanceMain form select,#attendanceMain form input{
+#attendanceMain form select,#attendanceMain form input,#resultMain form select,#resultMain form input{
     width:200px;
     margin-bottom: 15px;
 }
-#attendanceMain form button{
+#attendanceMain form button,#resultMain form button{
     border-style:none;
     border-radius:10px;
     background-color: #12d1b1;

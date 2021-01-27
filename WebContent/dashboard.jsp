@@ -49,7 +49,7 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="ViewAttendance.jsp">View Attendance</a></li>
-            <li><a class="dropdown-item" href="#">View Result</a></li>
+            <li><a class="dropdown-item" href="ViewResult.jsp">View Result</a></li>
             
           </ul>
         </li>
