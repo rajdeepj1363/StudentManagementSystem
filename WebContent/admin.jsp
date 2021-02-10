@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>ADMIN</title>
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="public/css/styles.css">
 </head>
 <body>
 <div id="adminLoginForm">

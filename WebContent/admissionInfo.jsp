@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verify Data</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link href="css/admissionForm.css" rel="stylesheet" >
+    <link href="public/css/admissionForm.css" rel="stylesheet" >
 </head>
 <style>
     body{
@@ -96,14 +96,14 @@
     <div class="tab2">
         <h1>UPLOAD DOCUMENTS</h1>
         <label>Aadhar Card</label><span class="required-mark">*</span><br>
-        <a href="uploads\aadhar\Rajdeep5574805Jadhavaadhar.jpg" target="_blank">Click Here</a><br>
-        <a href=<%System.out.println(obj.getUp_aadhar());out.print("uploads/aadhar/"+obj.getUp_aadhar()); %> target="_blank">Click Here</a><br>
+        <a href="public\uploads\aadhar\Rajdeep5574805Jadhavaadhar.jpg" target="_blank">Click Here</a><br>
+        <a href=<%System.out.println(obj.getUp_aadhar());out.print("public/uploads/aadhar/"+obj.getUp_aadhar()); %> target="_blank">Click Here</a><br>
         <label>PAN Card</label><span class="required-mark">*</span><br>
-        <a href=<%out.print("uploads/pan/"+obj.getUp_PAN()); %> target="_blank">Click Here</a><br>
+        <a href=<%out.print("public/uploads/pan/"+obj.getUp_PAN()); %> target="_blank">Click Here</a><br>
         <label>10th Marksheet</label><span class="required-mark">*</span><br>
-        <a href=<%out.print("uploads/10thMarksheet/"+obj.getUp_tenth()); %> target="_blank">Click Here</a><br>
+        <a href=<%out.print("public/uploads/10thMarksheet/"+obj.getUp_tenth()); %> target="_blank">Click Here</a><br>
         <label>12th Marksheet</label><span class="required-mark">*</span><br>
-        <a href=<%out.print("uploads/12thMarksheet/"+obj.getUp_twelve()); %> target="_blank">Click Here</a><br>
+        <a href=<%out.print("public/uploads/12thMarksheet/"+obj.getUp_twelve()); %> target="_blank">Click Here</a><br>
     </div>
     <button class="next" type="button">NEXT</button>
     
@@ -120,8 +120,6 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-<script src="js/javascript.js" type="text/javascript"></script>
-<script type="text/javascript">
+<script src="public/js/javascript.js" type="text/javascript"></script>
 
-</script>
 </html>

@@ -37,33 +37,7 @@ public class VerifyCandidate extends HttpServlet {
 			ConnectionDB.getConnection();
 			Statement st = ConnectionDB.con.createStatement();
 			
-			/*ResultSet res = st.executeQuery("SELECT * FROM admissiondata WHERE email = '"+email+"'");
-			res.next();
-			String title = res.getString("title");
-			String fname = res.getString("fname");
-			String mname = res.getString("mname");
-			String lname = res.getString("lname");
-			String gender = res.getString("gender");
-			String mobile = res.getString("mobile");
-			String phone = res.getString("phone");
 			
-			String dob = res.getString("dob");
-			String pob = res.getString("pob");
-			String marital_status = res.getString("marital_status");
-			String father_name = res.getString("father_name");
-			String father_occupation = res.getString("fOccupation");
-			String mother_name = res.getString("mother_name");
-			String mother_occupation =res.getString("mOccupation");
-			String parent_phone = res.getString("parent_phone");
-			String caste_category = res.getString("caste_category");
-			String sub_caste = res.getString("sub_caste");
-			String nationality = res.getString("nationality");
-			String religion = res.getString("religion");
-			String handicap = res.getString("handicap");
-			String aadhar = res.getString("aadhar_file");
-			String pan = res.getString("pan_file");
-			String tenth = res.getString("tenth_marksheet");
-			String twelveth = res.getString("twelveth_marksheet");*/
 			
 			String title = student.getTitle();
 			String fname = student.getFname();

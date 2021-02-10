@@ -115,22 +115,7 @@ border-width:1.5px;
 		
 		
 	</form>
-	<%
-	/*int count = 1;
-	if(result!=null && result.next())
-	{
-		while(count<=21)
-		{
-			out.print(result.getString(count));
-			out.print("\n");
-			System.out.println(count);
-			count++;
-		}
-		
-	}*/
-		
-		
-		%>
+	
 
 </div>
 

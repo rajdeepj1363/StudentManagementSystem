@@ -77,7 +77,7 @@ public class ResultUpload extends HttpServlet {
 					flag = 1;
 					if(fileItem.getSize()>0)
 					{
-						fileItem.write(new File("C:\\Users\\Rajdeep\\workspace\\StudentManagementSystem\\WebContent\\uploads\\results\\"+userInputs[4]));
+						fileItem.write(new File("C:\\Users\\Rajdeep\\workspace\\StudentManagementSystem\\WebContent\\public\\uploads\\results\\"+userInputs[4]));
 						
 					}
 				}

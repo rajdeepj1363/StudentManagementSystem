@@ -18,9 +18,12 @@
     <!-- Bootstrap core CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 <!-- Favicons -->
-<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="public/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="public/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="public/favicons/favicon-16x16.png">
+
+ <!-- Custom styles for this template -->
+    <link href="public/css/signin.css" rel="stylesheet">
 
     
 
@@ -45,6 +48,12 @@
       {
       	position:fixed;
       	top:0;
+      	left:50%;
+      	-ms-transform: translateX(-50%) translateY(0%) !important;
+	    -webkit-transform: translate(-50%,0%) !important;
+	    transform: translate(-50%,0%) !important;
+      	
+      
       }
       .StudentLoginBtn,.TeacherLoginBtn{
      	margin:5px auto 20px auto;	
@@ -56,22 +65,51 @@
      	font-size:24px;
      	border-radius:5px;
      }
-    
-     
+     .closeAdminModal{
+     	position:absolute;
+     	top:0px;
+     	right:30px;
+     }
+    .adminLoginModal{
+	
+	position:absolute !important;
+	top:50% !important;
+	left:50% !important;
+	-ms-transform: translateX(-50%) translateY(-50%) !important;
+    -webkit-transform: translate(-50%,-50%) !important;
+    transform: translate(-50%,-50%) !important;
+    padding:40px;
+    box-shadow:5px 10px #ddd;
+   
+}
+.adminLogin{
+cursor:pointer;
+}
+.adminLoginModal form input,.adminLoginModal form button{
+	margin-bottom:5px;
+}
     </style>
 
     
-    <!-- Custom styles for this template -->
-    <link href="css/signin.css" rel="stylesheet">
-  </head>
+     </head>
   <body class="text-center">
 
-    
+    <div class="adminLoginModal" style="display:none;">
+    	<h4 style="text-align:center">Admin Login</h4>
+    	<div id="adminLoginForm">
+    		<button type="button" class="closeAdminModal">X</button>
+			<form action="checkAdmin" method="post">
+				<input type="text" name="adminUsername" placeholder="Enter Username" required><br>
+				<input type="password" name="adminPwd" placeholder="Enter Password" required><br>
+				<button type="submit">Login</button>
+			</form>
+		</div>
+    </div>
     
 <main class="form-signin">
   <div id="navBar">
-  		<a href="admissionForm.jsp">Admission</a>
-  		<a href="admin.jsp">Admin</a>
+  		<a class="admissionPage" href="admissionForm.jsp">Admission</a>
+  		<a class="adminLogin">Admin</a>
   </div>
   <form action="verify" method="post">
     
@@ -140,6 +178,16 @@
         $("#student").css("background-color","#f5f5f5");
         $("#student").css("color","#000");
        
+    });
+    document.querySelector(".adminLogin").addEventListener("click",function(){
+    	console.log("Inside ADmin js");
+    	$(".adminLoginModal").css("display","block");
+    	$(".form-signin").css("display","none");
+    });
+    document.querySelector(".closeAdminModal").addEventListener("click",function(){
+    	
+    	$(".adminLoginModal").css("display","none");
+    	$(".form-signin").css("display","block");
     });
 </script>
 

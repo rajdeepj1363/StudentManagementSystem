@@ -22,11 +22,11 @@
 	ResultSet result = GetAttendance.getAttendance((String)session.getAttribute("email"));
 	result.next();
 	int totalLec = Integer.valueOf(result.getString("totalLec"));
-	System.out.println(totalLec);
+	
 	int attendedLec = Integer.valueOf(result.getString("attendedLec"));
-	System.out.println(attendedLec);
+	
 	float percentage = (attendedLec/(float)totalLec)*100;
-	System.out.println(percentage);
+	
 	
 %>
 <h3>Total Number of Lectures: <%out.print(totalLec); %></h3>

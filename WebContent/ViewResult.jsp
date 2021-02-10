@@ -8,12 +8,12 @@
 <!-- Bootstrap CSS Link CDN -->
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-<link href="css/styles.css" rel="stylesheet">
+<link href="public/css/styles.css" rel="stylesheet">
 
 <!-- Favicons -->
-<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="public/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="public/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="public/favicons/favicon-16x16.png">
 </head>
 <body>
 <%
@@ -52,7 +52,7 @@ response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
     	while(result.next())
     	{
     		
-    		out.print("<tr><th scope='row'>"+String.valueOf(i)+"</th><td>"+result.getString("name")+"</td><td>"+result.getString("exam")+"</td><td>"+result.getString("date")+"</td> <td><a href="+"uploads/results/"+result.getString("result")+" target='_blank'>View</a></td></tr>");
+    		out.print("<tr><th scope='row'>"+String.valueOf(i)+"</th><td>"+result.getString("name")+"</td><td>"+result.getString("exam")+"</td><td>"+result.getString("date")+"</td> <td><a href="+"public/uploads/results/"+result.getString("result")+" target='_blank'>View</a></td></tr>");
     		
     		i++;
     	}

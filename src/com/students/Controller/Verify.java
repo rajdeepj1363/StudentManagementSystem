@@ -62,8 +62,7 @@ public class Verify extends HttpServlet {
 				Statement statement = ConnectionDB.con.createStatement();
 				ResultSet result = statement.executeQuery("SELECT * FROM studentcreds");
 
-				//ResultSet result = statement.executeQuery("SELECT * FROM studentcreds WHERE email ='"+username+"' AND passkey='"+password+"' LIMIT 1");
-				
+								
 				while(result.next())
 				{	
 					fetchedUsername = result.getString("email");
@@ -112,12 +111,7 @@ public class Verify extends HttpServlet {
 						System.out.println(Tlogin);
 						break;
 					}
-						/*String email = result.getString("email");
-						String pwd = result.getString("passkey");
-						HttpSession session = request.getSession();
-						session.setAttribute("TeacherEmail", email);
-						session.setAttribute("TeacherPassword", pwd);
-						response.sendRedirect("dashboardTeacher.jsp");*/
+						
 						
 				}
 				if(Tlogin == false)

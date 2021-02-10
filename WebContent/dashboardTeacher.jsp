@@ -8,16 +8,16 @@
 <!-- Bootstrap CSS Link CDN -->
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-<link href="css/styles.css" rel="stylesheet">
+<link href="public/css/styles.css" rel="stylesheet">
 
 <!-- Favicons -->
-<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="public/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="public/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="public/favicons/favicon-16x16.png">
 </head>
-<body>
+<body>								
 <%
-	if(session.getAttribute("TeacherEmail") == null && session.getAttribute("user").equals("teacher"))
+	if(session.getAttribute("TeacherEmail") == null && !(session.getAttribute("user") == "teacher"))
 	{
 		response.sendRedirect("index.jsp");
 	}
@@ -28,7 +28,7 @@
 	
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="dashboardTeacher.jsp"><img src="favicons/favicon.ico"></a>
+    <a class="navbar-brand" href="dashboardTeacher.jsp"><img src="public/favicons/favicon.ico"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

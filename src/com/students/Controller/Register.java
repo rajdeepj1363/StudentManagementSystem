@@ -37,32 +37,7 @@ public class Register extends HttpServlet {
 		// TODO Auto-generated method stub
 		String[] formFields = {"title","fname","mname","lname","gender","mobile","phone","email","dob","pob","marital_status","father_name","fOccupation","mother_name","mOccupation","parent_phone","caste_category","sub_caste","nationality","religion","handicap"};
 		String[] userFormFields = new String[25];
-		/*String title = request.getParameter("title");
-		String fname = request.getParameter("fname");
-		String mname = request.getParameter("mname");
-		String lname = request.getParameter("lname");
-		String gender = request.getParameter("gender");
-		String mobile = request.getParameter("mobile");
-		String phone = request.getParameter("phone");
-		String email = request.getParameter("email");
-		String dob = request.getParameter("dob");
-		String pob = request.getParameter("pob");
-		String marital_status = request.getParameter("marital_status");
-		String father_name = request.getParameter("father_name");
-		String father_occupation = request.getParameter("father_occupation");
-		String mother_name = request.getParameter("mother_name");
-		String mother_occupation = request.getParameter("mother_occupation");
-		String parent_phone = request.getParameter("parent_phone");
-		String caste_category = request.getParameter("caste_category");
-		String sub_caste = request.getParameter("sub_caste");
-		String nationality = request.getParameter("nationality");
-		String religion = request.getParameter("religion");
-		String handicap = request.getParameter("handicap");
-		String aadhar = request.getParameter("up_aadhar");
-		System.out.println("File name: "+aadhar);
-		String pan = request.getParameter("up_PAN");
-		String tenth = request.getParameter("up_tenth");
-		String twelveth = request.getParameter("up_twelve");*/
+		
 		
 		try{
 			response.setContentType("text/html");
@@ -106,28 +81,28 @@ public class Register extends HttpServlet {
 						{
 							uniqName = (uniqName+"aadhar"+".jpg").replaceAll("\\s", "");
 							
-							fileItem.write(new File("C:\\Users\\Rajdeep\\workspace\\StudentManagementSystem\\WebContent\\uploads\\aadhar\\"+uniqName));
+							fileItem.write(new File("C:\\Users\\Rajdeep\\workspace\\StudentManagementSystem\\WebContent\\public\\uploads\\aadhar\\"+uniqName));
 							userFormFields[21] = uniqName;
 						}
 						if(i == 22)
 						{
 							uniqName = (uniqName+"PAN"+".jpg").replaceAll("\\s", "");
 							
-							fileItem.write(new File("C:\\Users\\Rajdeep\\workspace\\StudentManagementSystem\\WebContent\\uploads\\pan\\"+uniqName));
+							fileItem.write(new File("C:\\Users\\Rajdeep\\workspace\\StudentManagementSystem\\WebContent\\public\\uploads\\pan\\"+uniqName));
 							userFormFields[22] = uniqName;
 						}
 						if(i == 23)
 						{
 							uniqName = (uniqName+"10th"+".jpg").replaceAll("\\s", "");
 							
-							fileItem.write(new File("C:\\Users\\Rajdeep\\workspace\\StudentManagementSystem\\WebContent\\uploads\\10thMarksheet\\"+uniqName));
+							fileItem.write(new File("C:\\Users\\Rajdeep\\workspace\\StudentManagementSystem\\WebContent\\public\\uploads\\10thMarksheet\\"+uniqName));
 							userFormFields[23] = uniqName;
 						}
 						if(i == 24)
 						{
 							uniqName = (uniqName+"12th"+".jpg").replaceAll("\\s", "");
 							
-							fileItem.write(new File("C:\\Users\\Rajdeep\\workspace\\StudentManagementSystem\\WebContent\\uploads\\12thMarksheet\\"+uniqName));
+							fileItem.write(new File("C:\\Users\\Rajdeep\\workspace\\StudentManagementSystem\\WebContent\\public\\uploads\\12thMarksheet\\"+uniqName));
 							userFormFields[24] = uniqName;
 						}
 						
