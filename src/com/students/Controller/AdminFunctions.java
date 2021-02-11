@@ -26,7 +26,7 @@ public class AdminFunctions extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected boolean  delete(String email,String user)
+	protected boolean  deleteUser(String email,String user)
 	{
 		if(user.equals("student"))
 		{
@@ -101,7 +101,7 @@ public class AdminFunctions extends HttpServlet {
 			
 			String email = request.getParameter("email");
 			String user = request.getParameter("user");
-			boolean result = delete(email,user);
+			boolean result = deleteUser(email,user);
 			if(result == true)
 			{
 				response.sendRedirect("dashboardAdmin.jsp?"+email+"=deleted");

@@ -38,7 +38,7 @@
           <a class="nav-link active" aria-current="page" href="dashboardTeacher.jsp">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="information.jsp">Information</a>
+          <a class="nav-link" href="information_t.jsp">Information</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -52,6 +52,15 @@
         </li>
        
       </ul>
+      <li class="nav-item d-flex">
+      		<ul class="loggedin_details">
+      			<li><p>LoggedIn User: <%out.print(session.getAttribute("name")); %></p></li>
+      			<li><p>User Type: <span style="text-transform:uppercase"><%out.print(session.getAttribute("user")); %></span></p></li>
+      		</ul>
+        	
+        	
+        </li>
+        
       <form action="logout.jsp" class="d-flex">
         <button class="btn btn-outline-success" type="submit">Logout</button>
       </form>
@@ -62,8 +71,8 @@
 
 <section id="middle">
 	
-	<h3>Welcome <%out.print(session.getAttribute("name")); %></h3>
-	<p style="text-transform:uppercase"><% out.print(session.getAttribute("user")); %></p>
+	<h3>Welcome </h3>
+	
 
 
 </section>

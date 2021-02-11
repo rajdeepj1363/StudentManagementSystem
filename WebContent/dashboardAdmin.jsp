@@ -148,6 +148,14 @@
         </li>
        
       </ul>
+      <li class="nav-item d-flex">
+      		<ul class="loggedin_details">
+      			<li><p>LoggedIn User: <%out.print(session.getAttribute("AdminUsername")); %></p></li>
+      			<li><p>User Type: <span style="text-transform:uppercase"><%out.print(session.getAttribute("user")); %></span></p></li>
+      		</ul>
+        	
+        	
+        </li>
       <form action="logout.jsp" class="d-flex">
         <button class="btn btn-outline-success" type="submit">Logout</button>
       </form>

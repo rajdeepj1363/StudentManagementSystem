@@ -26,21 +26,14 @@ public class FetchInfo {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	
-	public static StudentInfo fetchInfo(String email)
+	public static StudentInfo fetchStudentInfo(String email)
 	{
+		
 		try{
 			ConnectionDB.getConnection();
 			System.out.println("I got the connection!");
-		}
-		catch(ClassNotFoundException e)
-		{
-			System.out.println("driver not found at fetchinfo");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
 			Statement statement = ConnectionDB.con.createStatement();
+			
 			ResultSet result = statement.executeQuery("SELECT * FROM studentinfo WHERE email ='"+email+"' LIMIT 1");
 			StudentInfo student = new StudentInfo();
 			System.out.println("Student obj created");
@@ -64,15 +57,62 @@ public class FetchInfo {
 			}
 			System.out.println(student);
 			return student;
-			
-			
-			
+		}
+		catch(ClassNotFoundException e)
+		{
+			System.out.println("driver not found at fetchinfo");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return null;
 		
+		}
+		
+		public static TeacherInfo fetchTeacherInfo(String email)
+		{
+				try{
+					ConnectionDB.getConnection();
+					System.out.println("I got the connection!");
+					Statement statement = ConnectionDB.con.createStatement();
+					ResultSet result = statement.executeQuery("SELECT * FROM teachers WHERE uname ='"+email+"' LIMIT 1");
+					TeacherInfo teacher = new TeacherInfo();
+					System.out.println("Teacher obj created");
+					while(result.next())
+					{
+	
+						teacher.setName(result.getString("name"));
+						teacher.setAddress(result.getString("address"));
+						teacher.setUname(result.getString("uname"));
+						teacher.setMobile(result.getString("mobile"));
+						teacher.setDob(result.getString("dob"));
+						teacher.setQualification(result.getString("qualification"));
+						teacher.setDesignation(result.getString("designation"));
+						teacher.setClassTeacher(result.getString("classTeacher"));
+						teacher.setTeachingDivisions(result.getString("teachingDivisions"));
+						teacher.setTeachingSubjects(result.getString("teachingSubjects"));
+						
+						
+					}
+					System.out.println(teacher);
+					return teacher;
+				}
+				catch(SQLException s)
+				{
+					s.printStackTrace();
+				}
+				catch(ClassNotFoundException e)
+				{
+					e.printStackTrace();
+				}
+				return null;
+			
+		}
+			
+			
+			
+			
+		
+		
 	}
 
-}

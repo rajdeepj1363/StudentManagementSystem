@@ -99,3 +99,18 @@ body{
     color:#fff;
     padding:5px 20px;
 }
+.loggedin_details{
+	position:absolute;
+	top:25%;
+	right:8%;
+	
+	list-style-type:none;
+	line-height:0.5;
+}
+ .pageHeader
+    {
+    font-family:'Staatliches', cursive;
+    font-size:50px;
+    text-align:center;
+    color:#fff;
+    }

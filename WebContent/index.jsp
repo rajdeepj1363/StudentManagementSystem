@@ -24,7 +24,8 @@
 
  <!-- Custom styles for this template -->
     <link href="public/css/signin.css" rel="stylesheet">
-
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
     
 
 <meta name="theme-color" content="#7952b3">
@@ -108,8 +109,12 @@ cursor:pointer;
     
 <main class="form-signin">
   <div id="navBar">
-  		<a class="admissionPage" href="admissionForm.jsp">Admission</a>
+  		
+    	<h1 style="font-family:'Staatliches', cursive;font-size:50px;">STUDENT MANAGEMENT SYSTEM</h1>
+    	<br>
+    	<a class="admissionPage" href="admissionForm.jsp">Admission</a>
   		<a class="adminLogin">Admin</a>
+  		
   </div>
   <form action="verify" method="post">
     
@@ -122,6 +127,7 @@ cursor:pointer;
     	<div class="col-6 TeacherLoginBtn">
     		<button type = "button" id="teacher">Teacher</button>
     	</div>
+    	
     </div>
     <label for="inputEmail" class="visually-hidden">Email address</label>
     <input name = "email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>

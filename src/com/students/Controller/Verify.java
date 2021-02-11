@@ -1,7 +1,5 @@
 package com.students.Controller;
-
 import java.io.IOException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,11 +10,6 @@ import javax.servlet.http.HttpSession;
 
 import static java.lang.System.out;
 import static javax.swing.JOptionPane.showMessageDialog;
-
-
-
-
-
 
 
 //SQL PACKAGES

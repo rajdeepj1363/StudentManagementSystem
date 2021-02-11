@@ -29,7 +29,8 @@ public class EditInfo extends HttpServlet {
 		
 		try
 		{
-			ConnectionDB.getConnection();Statement st = ConnectionDB.con.createStatement();
+			ConnectionDB.getConnection();
+			Statement st = ConnectionDB.con.createStatement();
 			st.executeUpdate("UPDATE studentinfo SET cAddress='"+address+"',mobile='"+mobile+"',father_name='"+father_name+"',fOccupation='"+fOccupation+"',mother_name='"+mother_name+"',mOccupation='"+mOccupation+"' WHERE email='"+email+"'");
 			return true;
 			
@@ -45,28 +46,74 @@ public class EditInfo extends HttpServlet {
 		return false;
 		
 	}
+	protected boolean TeacherEditInfo(String address,String mobile,String qualification,String email)
+	{
+		
+		try
+		{
+			ConnectionDB.getConnection();
+			Statement st = ConnectionDB.con.createStatement();
+			System.out.print("UNAME: "+email);
+			st.executeUpdate("UPDATE teachers SET address='"+address+"',mobile='"+mobile+"',qualification='"+qualification+"' WHERE uname='"+email+"'");
+			return true;
+			
+			
+		}
+		catch(SQLException s){
+			System.out.println(s);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+		
+	}
+	
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 			HttpSession session = request.getSession(true);
 			String user = (String) session.getAttribute("user");
-			String email = request.getParameter("email");
-	
-			String address = request.getParameter("address");
-			String mobile = request.getParameter("mobile");
-			String father_name = request.getParameter("father_name");
-			String fOccupation = request.getParameter("fOccupation");
-			String mother_name = request.getParameter("mother_name");
-			String mOccupation = request.getParameter("mOccupation");
-			boolean result = StudentEditInfo(address,mobile,father_name,fOccupation,mother_name,mOccupation,email);
-			if(result == true)
+			
+			if(user.equals("student"))
 			{
-				response.sendRedirect("information.jsp?InformationUpdated");
+				String email = request.getParameter("email");
+				String address = request.getParameter("address");
+				String mobile = request.getParameter("mobile");
+				String father_name = request.getParameter("father_name");
+				String fOccupation = request.getParameter("fOccupation");
+				String mother_name = request.getParameter("mother_name");
+				String mOccupation = request.getParameter("mOccupation");
+				boolean result = StudentEditInfo(address,mobile,father_name,fOccupation,mother_name,mOccupation,email);
+				if(result == true)
+				{
+					response.sendRedirect("information.jsp?InformationUpdated");
+				}
+				else
+				{
+					response.sendRedirect("information.jsp?error");
+				}
+				
 			}
-			else
+			if(user.equals("teacher"))
 			{
-				response.sendRedirect("information.jsp?error");
+				String address = request.getParameter("address");
+				String mobile = request.getParameter("mobile");
+				String qualification = request.getParameter("qualification");
+				String email = request.getParameter("uname");
+				boolean result = TeacherEditInfo(address,mobile,qualification,email);
+				if(result == true)
+				{
+					response.sendRedirect("information_t.jsp?InformationUpdated");
+				}
+				else
+				{
+					response.sendRedirect("information_t.jsp?error");
+				}
 			}
+			
+			
 		
 		
 	}

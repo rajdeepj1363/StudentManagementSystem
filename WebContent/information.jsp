@@ -34,8 +34,11 @@
 %>
 <%
 	String email = (String)session.getAttribute("email");
+	String user = (String)session.getAttribute("user");
 	StudentInfo obj = new StudentInfo();
-	obj = FetchInfo.fetchInfo(email);
+	obj = FetchInfo.fetchStudentInfo(email);
+
+
 	//HashMap<String,String> result = FetchInfo.fetchInfo(email);
 	System.out.println("Im jsp\n Hello"+obj.getName());
 %>

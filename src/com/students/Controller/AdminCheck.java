@@ -85,6 +85,7 @@ public class AdminCheck extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("AdminUsername", fetchedUsername);
 			session.setAttribute("AdminPassword", fetchedPassword);
+			session.setAttribute("user", "admin");
 			response.sendRedirect("dashboardAdmin.jsp?login=success");
 		}
 		else
