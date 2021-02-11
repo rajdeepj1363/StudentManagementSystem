@@ -28,11 +28,35 @@ import com.students.sql.ConnectionDB;
  */
 @WebServlet("/ResultUpload")
 public class ResultUpload extends HttpServlet {
+	String[] userInputs = new String[5];
 	private static final long serialVersionUID = 1L;
-   
+	
+	protected boolean uploadResult()
+	{
+		boolean result = false;
+		try {
+			ConnectionDB.getConnection();
+			Statement stmt = null;
+			String sql = "INSERT INTO results(email,name,exam,date,result) VALUES('"+userInputs[0]+"','"+userInputs[1]+"','"+userInputs[2]+"','"+userInputs[3]+"','"+userInputs[4]+"')";
+			stmt = ConnectionDB.con.createStatement();
+			stmt.executeUpdate(sql);
+			System.out.println("Result Upload Done!");
+			result = true;
+			return result;
+			}
+		catch(SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String[] userInputs = new String[5];
+		
 		String uniqName = "";
 		try{
 			
@@ -91,25 +115,16 @@ public class ResultUpload extends HttpServlet {
 			System.out.println(e);
 		}
 		
-		try {
-			ConnectionDB.getConnection();
-			Statement stmt = null;
-			String sql = "INSERT INTO results(email,name,exam,date,result) VALUES('"+userInputs[0]+"','"+userInputs[1]+"','"+userInputs[2]+"','"+userInputs[3]+"','"+userInputs[4]+"')";
-			stmt = ConnectionDB.con.createStatement();
-			stmt.executeUpdate(sql);
-		
-				
-				System.out.println("Result Upload Done!");
-			
-				response.sendRedirect("result.jsp?resultupload=success");
-			}
-		catch(SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		boolean result = uploadResult();
+		if(result == true)
+		{
+			response.sendRedirect("dashboardTeacher.jsp?resultupload=success");
 		}
+		else
+		{
+			response.sendRedirect("dashboardTeacher.jsp?error");
+		}
+		
 	}
 
 }

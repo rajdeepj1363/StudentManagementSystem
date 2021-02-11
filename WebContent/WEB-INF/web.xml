@@ -52,14 +52,7 @@
     <url-pattern>/candidateVerified</url-pattern>
   </servlet-mapping>
   
-  <servlet>
-    <servlet-name>AddTeacher</servlet-name>
-    <servlet-class>com.students.Controller.AddTeacher</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AddTeacher</servlet-name>
-    <url-pattern>/FacultyUpdated</url-pattern>
-  </servlet-mapping>
+ 
   
   <servlet>
     <servlet-name>editInfo</servlet-name>
@@ -97,12 +90,5 @@
     <url-pattern>/result</url-pattern>
   </servlet-mapping>
   
-  <servlet>
-  	<servlet-name>EditUserInfo</servlet-name>
-  	<servlet-class>com.students.Controller.EditInformation</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>EditUserInfo</servlet-name>
-  	<url-pattern>/editinginfo</url-pattern>
-  </servlet-mapping>
+
 </web-app>

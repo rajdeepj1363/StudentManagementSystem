@@ -22,17 +22,13 @@ import com.students.POJO.AdmissionInfo;
 @WebServlet("/verifyCandidate")
 public class VerifyCandidate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-   
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		String email = request.getParameter("candidate_email");
-		System.out.println("Candidate's Email: "+ email);
-		Random rand = new Random();
-		String uniq = "PassKey"+String.valueOf(rand.nextInt(999999));
-		HttpSession session = request.getSession(true);
-		AdmissionInfo student = (AdmissionInfo)session.getAttribute("AdmissionData");
-		try
+	String password = "";
+   protected boolean verifyCandidate(String email,AdmissionInfo student)
+   {
+	   boolean result = false;
+	   
+	   
+	   try
 		{
 			ConnectionDB.getConnection();
 			Statement st = ConnectionDB.con.createStatement();
@@ -64,11 +60,13 @@ public class VerifyCandidate extends HttpServlet {
 			String pan = student.getUp_PAN();
 			String tenth = student.getUp_tenth();
 			String twelveth =student.getUp_twelve();
-			
+			Random rand = new Random();
+			String uniq = "PassKey"+String.valueOf(rand.nextInt(999999));
+			password = uniq;
 			st.executeUpdate("UPDATE admissiondata SET verification = 'DONE' WHERE email='"+email+"'");
 			st.executeUpdate("INSERT INTO studentcreds(fname,lname,email,passkey) VALUES('"+fname+"','"+lname+"','"+email+"','"+uniq+"')");
 			st.executeUpdate("INSERT INTO studentinfo(title,fname,mname,lname,gender,mobile,phone,email,dob,pob,marital_status,father_name,fOccupation,mother_name,mOccupation,parent_phone,caste_category,sub_caste,nationality,religion,handicap,aadhar,pan,tenthMarksheet,twelvethMarksheet) VALUES('"+title+"','"+fname+"','"+mname+"','"+lname+"','"+gender+"','"+mobile+"','"+phone+"','"+email+"','"+dob+"','"+pob+"','"+marital_status+"','"+father_name+"','"+father_occupation+"','"+mother_name+"','"+mother_occupation+"','"+parent_phone+"','"+caste_category+"','"+sub_caste+"','"+nationality+"','"+religion+"','"+handicap+"','"+aadhar+"','"+pan+"','"+tenth+"','"+twelveth+"')"); 
-			response.sendRedirect("dashboardAdmin.jsp?"+email+"=verified&passkey="+uniq);
+			result = true;
 		}
 		catch(ClassNotFoundException e)
 		{
@@ -78,6 +76,27 @@ public class VerifyCandidate extends HttpServlet {
 		{
 			System.out.println(s);
 		}
+	   return result;
+	   
+   }
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		String email = request.getParameter("candidate_email");
+		System.out.println("Candidate's Email: "+ email);
+		HttpSession session = request.getSession(true);
+		AdmissionInfo student = (AdmissionInfo)session.getAttribute("AdmissionData");
+		boolean result = verifyCandidate(email,student);
+		if(result == true)
+		{
+			response.sendRedirect("dashboardAdmin.jsp?"+email+"=verified&passkey="+password);
+
+		}
+		else
+		{
+			response.sendRedirect("dashboardAdmin.jsp?"+email+"=verified&passkey="+password);
+		}
+		
 	}
 
 }

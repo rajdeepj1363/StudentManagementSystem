@@ -52,14 +52,19 @@ body{
 	-ms-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
-   
+   	border-style:solid;
+   	border-width:2px;
     
 }
 #editInfo div
 {
 	
 	background-color:#fff;
-    padding:20px;
+    padding:30px;
+    
+}
+#editInfo div label{
+	margin-left:5px;
 }
 #editInfo input,#editInfo button{
 	margin:5px;

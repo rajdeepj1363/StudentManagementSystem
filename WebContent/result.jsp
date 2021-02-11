@@ -24,7 +24,7 @@
 	}
 	response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
 %>
-<%@ page import="com.students.Controller.InsertAttendance" %>
+<%@ page import="com.students.Controller.GetStudentList" %>
 <%@ page import="java.sql.ResultSet" %>
 <%
 	String submit = request.getParameter("submit");
@@ -36,7 +36,7 @@
 		String  course = request.getParameter("course_name");
 		String year = request.getParameter("year");
 		String div = request.getParameter("division");
-		ResultSet result = InsertAttendance.StudentAttendance(course,year,div);
+		ResultSet result = GetStudentList.StudentList(course,year,div);
 		session.setAttribute("StudentResult",result);
 	}
 	
@@ -146,6 +146,7 @@
         %>
 	
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <script type="text/javascript">
 	var myDate = document.querySelector("input[name=date]");

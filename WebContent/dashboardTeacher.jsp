@@ -60,6 +60,14 @@
 </nav>
 </section>
 
+<section id="middle">
+	
+	<h3>Welcome <%out.print(session.getAttribute("name")); %></h3>
+	<p style="text-transform:uppercase"><% out.print(session.getAttribute("user")); %></p>
+
+
+</section>
+
 <section id="footer" style="position:absolute;bottom:0;">
 	
 	<div class="row">
@@ -81,6 +89,7 @@
 	</div>
 </section>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
 </html>

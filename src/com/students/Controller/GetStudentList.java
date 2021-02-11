@@ -1,13 +1,13 @@
 package com.students.Controller;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.*;
 
-import com.students.sql.*;
+import com.students.sql.ConnectionDB;
 
-public class InsertAttendance {
-	public static ResultSet StudentAttendance(String Course,String Year,String Div)
+public class GetStudentList {
+	public static ResultSet StudentList(String Course,String Year,String Div)
 	{
 		try
 		{

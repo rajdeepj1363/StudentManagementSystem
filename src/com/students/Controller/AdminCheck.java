@@ -26,39 +26,24 @@ import com.students.sql.*;
 public class AdminCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-  
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String username = request.getParameter("adminUsername");
-		String password = request.getParameter("adminPwd");
-		String fetchedUsername = "";
-		String fetchedPassword = "";
+   
+	
+	String fetchedUsername = "";
+	String fetchedPassword = "";
+	
+	protected boolean checkCredentials(String username,String password)
+	{
+		
 		boolean login = false;
 		try
 		{
 			ConnectionDB.getConnection();
-		}
-		catch(ClassNotFoundException e)
-		{
-			System.out.println(e);
-		}
-		catch(SQLException s)
-		{
-			System.out.println(s);
-		}
-		
-		try
-		{
 			Statement st = ConnectionDB.con.createStatement();
-			ResultSet res = st.executeQuery("SELECT * FROM admin");
-			while(res.next())
+			ResultSet result = st.executeQuery("SELECT * FROM admin");
+			while(result.next())
 			{
-				fetchedUsername = res.getString("username");
-				fetchedPassword = res.getString("pwd");
+				fetchedUsername = result.getString("username");
+				fetchedPassword = result.getString("pwd");
 				if(fetchedUsername.equals(username) && fetchedPassword.equals(password))
 				{
 					login = true;
@@ -68,17 +53,45 @@ public class AdminCheck extends HttpServlet {
 			if(login == false)
 			{
 				System.out.println("Invalid Credentials");
-				response.sendRedirect("admin.jsp?invalidCredentials");
+				return false;
+				
 			}
-			HttpSession session = request.getSession();
-			session.setAttribute("AdminUsername", fetchedUsername);
-			session.setAttribute("AdminPassword", fetchedPassword);
-			response.sendRedirect("dashboardAdmin.jsp?login=success");
+			else
+			{
+				return true;
+				
+			}
+			
+		}
+		catch(ClassNotFoundException e)
+		{
+			System.out.println(e);
 		}
 		catch(SQLException s)
 		{
 			System.out.println(s);
 		}
+		return false;
+	}
+
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String username = request.getParameter("adminUsername");
+		String password = request.getParameter("adminPwd");
+		boolean result = checkCredentials(username,password);
+		if(result == true)
+		{
+			HttpSession session = request.getSession();
+			session.setAttribute("AdminUsername", fetchedUsername);
+			session.setAttribute("AdminPassword", fetchedPassword);
+			response.sendRedirect("dashboardAdmin.jsp?login=success");
+		}
+		else
+		{
+			response.sendRedirect("index.jsp?invalidcredentials");
+		}
+		
 	}
 
 }

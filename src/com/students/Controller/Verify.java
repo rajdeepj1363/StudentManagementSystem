@@ -40,6 +40,7 @@ public class Verify extends HttpServlet {
 		System.out.println("Email: "+username+"\nPassword: "+password);	
 		String fetchedUsername = "";
 		String fetchedPassword = "";
+		String fetchedName = "";
 		boolean Slogin = false;
 		boolean Tlogin = false;
 		try{
@@ -67,6 +68,7 @@ public class Verify extends HttpServlet {
 				{	
 					fetchedUsername = result.getString("email");
 					fetchedPassword = result.getString("passKey");
+					fetchedName = result.getString("fname")+" "+result.getString("lname");
 						if(fetchedUsername.equals(username) && fetchedPassword.equals(password))
 						{
 							Slogin = true;
@@ -85,6 +87,7 @@ public class Verify extends HttpServlet {
 					session.setAttribute("email", fetchedUsername);
 					session.setAttribute("password", fetchedPassword);
 					session.setAttribute("user",user);
+					session.setAttribute("name",fetchedName);
 					response.sendRedirect("dashboard.jsp?LoginSuccessful");
 				}
 				
@@ -105,6 +108,7 @@ public class Verify extends HttpServlet {
 				{
 					fetchedUsername = result.getString("uname");
 					fetchedPassword = result.getString("pwd");
+					fetchedName = result.getString("name");
 					if(fetchedUsername.equals(username) && fetchedPassword.equals(password))
 					{
 						Tlogin = true;
@@ -124,6 +128,8 @@ public class Verify extends HttpServlet {
 					session.setAttribute("TeacherEmail", fetchedUsername);
 					session.setAttribute("TeacherPassword", fetchedPassword);
 					session.setAttribute("user",user);
+					session.setAttribute("name",fetchedName);
+					
 					response.sendRedirect("dashboardTeacher.jsp?LoginSuccess");
 				}
 				

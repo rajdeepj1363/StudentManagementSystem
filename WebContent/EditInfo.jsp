@@ -42,7 +42,7 @@ border-width:1.5px;
 %>
 <div id="first_block">
 	
-	<form action="EditUserInfo" method="post">
+	<form action="AdminFunctions" method="post">
 		<input type="text" name="function" value="editSearch" hidden>
 		<input type="text" name="user" value='<%out.print(user); %>' hidden>
 		<input type="text" name="email" placeholder="Enter your email" required>
@@ -52,7 +52,7 @@ border-width:1.5px;
 </div>
 
 <div id="fetchedInfo">
-	<form action="EditUserInfo" method="post">
+	<form action="AdminFunctions" method="post">
 	<input type='text' name='function' value='editAction' hidden>
 	<input type='text' name='user' value=<%out.print(session.getAttribute("EditUser")); %> hidden>
 		<table id="editInfo_table">

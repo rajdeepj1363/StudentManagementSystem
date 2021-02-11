@@ -17,6 +17,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="public/favicons/favicon-16x16.png">
 
 </head>
+
 <body>
 <%@ page import="com.students.Controller.FetchInfo" %>
 <%@ page import="java.util.*" %>
@@ -38,20 +39,31 @@
 	//HashMap<String,String> result = FetchInfo.fetchInfo(email);
 	System.out.println("Im jsp\n Hello"+obj.getName());
 %>
-<form id="editInfo" action="editInfo" method="post" style="display:none;background-color:white">
-	<div style="background-color:white">
+
+<form id="editInfo" action="editInfo" method="post" style="display:none">
+	<div>
+		
 		<button id="closeBtn" type="button">X</button>
-		<input type="text" name="email" value=<%out.print(obj.getEmail()); %> hidden>
-		<input type="text" name="mobile" placeholder="Enter your mobile number" value=<%out.print(obj.getPhone()); %>><br>
-		<input type="text" name="father_name" placeholder="Enter your father's name" value=<%out.print(obj.getFatherName()); %>><br>
-		<input type="text" name="fOccupation" placeholder="Enter your father's occupation" value=<%out.print(obj.getfOccupation()); %>><br>
-		<input type="text" name="mother_name" placeholder="Enter your mother's name" value=<%out.print(obj.getMotherName()); %>><br>
-		<input type="text" name="mOccupation" placeholder="Enter your mother's occupation" value=<%out.print(obj.getmOccupation()); %>><br>
-		<input type="text" name="address" placeholder="Enter your address" value=<%out.print(obj.getAddress());%> ><br>
+		<input type="text" name="email" value='<%out.print(obj.getEmail()); %>' hidden>
+		<label>Mobile No</label><br>
+		<input type="text" name="mobile" placeholder="Enter your mobile number" value='<%out.print(obj.getPhone()); %>'><br>
+		<label>Father's Name</label><br>
+		<input type="text" name="father_name" placeholder="Enter your father's name" value='<%out.print(obj.getFatherName()); %>'><br>
+		<label>Father's Occupation</label><br>
+		<input type="text" name="fOccupation" placeholder="Enter your father's occupation" value='<%out.print(obj.getfOccupation()); %>'><br>
+		<label>Mother's Name</label><br>
+		<input type="text" name="mother_name" placeholder="Enter your mother's name" value='<%out.print(obj.getMotherName()); %>'><br>
+		<label>Mother's Occupation</label><br>
+		<input type="text" name="mOccupation" placeholder="Enter your mother's occupation" value='<%out.print(obj.getmOccupation()); %>'><br>
+		<label>Address</label><br>
+		<input type="text" name="address" placeholder="Enter your address" value='<%out.print(obj.getAddress());%>' ><br>
 		<button type="submit">DONE</button>		
+		
 	</div>
+	
 
 </form>
+
 <div id="wrapper">
 <section id="NavigationBar">
 	
@@ -126,7 +138,12 @@
 		</div>
 		<div class="col-4 footerBlocks">
 		<p class="footerHeading">QUICK LINKS</p>
-		
+		<ul>
+			<li><a href="information.jsp">Basic Info</a></li>
+			<li><a href="ViewAttendance.jsp">View Attendance</a></li>
+			<li><a href="ViewResult.jsp">View Result</a></li>
+			
+		</ul>
 		</div>
 		<div class="col-4 footerBlocks">
 		<p class="footerHeading">ABOUT US</p>
@@ -138,16 +155,7 @@
 </div>
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-<script type="text/javascript">
-	document.querySelector(".editInfoBtn").addEventListener("click",function(){
-		document.querySelector("#editInfo").style.display = "block";
-		//document.querySelector("#wrapper").style.opacity = "0.1";
-	});
-	document.querySelector("#closeBtn").addEventListener("click",function(){
-		document.querySelector("#editInfo").style.display = "none";
-		//document.querySelector("#wrapper").style.opacity = "1";
-	});
-
-</script>
+<script src="public/js/information.js"></script>
 </html>
