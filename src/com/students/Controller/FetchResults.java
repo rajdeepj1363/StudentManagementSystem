@@ -8,11 +8,15 @@ import com.students.sql.*;
 public class FetchResults {
 	public static ResultSet fetchResult(String email)
 	{
+		
 		try{
+			
 			ConnectionDB.getConnection();
 			Statement st = ConnectionDB.con.createStatement();
 			ResultSet result = st.executeQuery("SELECT * FROM results WHERE email='"+email+"'");
 			return result;
+			
+			
 		}
 		catch(ClassNotFoundException e)
 		{

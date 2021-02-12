@@ -60,12 +60,15 @@ public class VerifyCandidate extends HttpServlet {
 			String pan = student.getUp_PAN();
 			String tenth = student.getUp_tenth();
 			String twelveth =student.getUp_twelve();
+			String allotted_year = student.getAllotted_year();
+			String allotted_div = student.getAllotted_div();
+			String allotted_course = student.getAllotted_course();
 			Random rand = new Random();
 			String uniq = "PassKey"+String.valueOf(rand.nextInt(999999));
 			password = uniq;
 			st.executeUpdate("UPDATE admissiondata SET verification = 'DONE' WHERE email='"+email+"'");
 			st.executeUpdate("INSERT INTO studentcreds(fname,lname,email,passkey) VALUES('"+fname+"','"+lname+"','"+email+"','"+uniq+"')");
-			st.executeUpdate("INSERT INTO studentinfo(title,fname,mname,lname,gender,mobile,phone,email,dob,pob,marital_status,father_name,fOccupation,mother_name,mOccupation,parent_phone,caste_category,sub_caste,nationality,religion,handicap,aadhar,pan,tenthMarksheet,twelvethMarksheet) VALUES('"+title+"','"+fname+"','"+mname+"','"+lname+"','"+gender+"','"+mobile+"','"+phone+"','"+email+"','"+dob+"','"+pob+"','"+marital_status+"','"+father_name+"','"+father_occupation+"','"+mother_name+"','"+mother_occupation+"','"+parent_phone+"','"+caste_category+"','"+sub_caste+"','"+nationality+"','"+religion+"','"+handicap+"','"+aadhar+"','"+pan+"','"+tenth+"','"+twelveth+"')"); 
+			st.executeUpdate("INSERT INTO studentinfo(title,fname,mname,lname,gender,mobile,phone,email,dob,pob,marital_status,father_name,fOccupation,mother_name,mOccupation,parent_phone,caste_category,sub_caste,nationality,religion,handicap,aadhar,pan,tenthMarksheet,twelvethMarksheet,CURR_YEAR,CURR_DIV,COURSE) VALUES('"+title+"','"+fname+"','"+mname+"','"+lname+"','"+gender+"','"+mobile+"','"+phone+"','"+email+"','"+dob+"','"+pob+"','"+marital_status+"','"+father_name+"','"+father_occupation+"','"+mother_name+"','"+mother_occupation+"','"+parent_phone+"','"+caste_category+"','"+sub_caste+"','"+nationality+"','"+religion+"','"+handicap+"','"+aadhar+"','"+pan+"','"+tenth+"','"+twelveth+"','"+allotted_year+"','"+allotted_div+"','"+allotted_course+"')"); 
 			result = true;
 		}
 		catch(ClassNotFoundException e)
@@ -86,6 +89,12 @@ public class VerifyCandidate extends HttpServlet {
 		System.out.println("Candidate's Email: "+ email);
 		HttpSession session = request.getSession(true);
 		AdmissionInfo student = (AdmissionInfo)session.getAttribute("AdmissionData");
+		String allotted_year = request.getParameter("allotted_year");
+		String allotted_div = request.getParameter("allotted_div");
+		String allotted_course = request.getParameter("allotted_course");
+		student.setAllotted_course(allotted_course);
+		student.setAllotted_div(allotted_div);
+		student.setAllotted_year(allotted_year);
 		boolean result = verifyCandidate(email,student);
 		if(result == true)
 		{

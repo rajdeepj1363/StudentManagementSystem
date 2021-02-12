@@ -31,7 +31,34 @@ public class AdmissionInfo {
 	private String up_PAN;
 	private String up_tenth;
 	private String up_twelve;
-	
+	private String verification_status;
+	private String allotted_year;
+	private String allotted_div;
+	private String allotted_course;
+	public String getAllotted_year() {
+		return allotted_year;
+	}
+	public void setAllotted_year(String allotted_year) {
+		this.allotted_year = allotted_year;
+	}
+	public String getAllotted_div() {
+		return allotted_div;
+	}
+	public void setAllotted_div(String allotted_div) {
+		this.allotted_div = allotted_div;
+	}
+	public String getAllotted_course() {
+		return allotted_course;
+	}
+	public void setAllotted_course(String allotted_course) {
+		this.allotted_course = allotted_course;
+	}
+	public String getVerification_status() {
+		return verification_status;
+	}
+	public void setVerification_status(String verification_status) {
+		this.verification_status = verification_status;
+	}
 	public String getTitle() {
 		return title;
 	}

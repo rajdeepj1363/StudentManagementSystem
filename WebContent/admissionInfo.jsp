@@ -8,7 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verify Data</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="public/css/styles.css" rel="stylesheet">
     <link href="public/css/admissionForm.css" rel="stylesheet" >
+  
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
 </head>
 <style>
     body{
@@ -36,6 +40,7 @@
 	
 	
 %>
+<h1 class="pageHeader">VERIFY DATA</h1>
 <div id="admissionForm">
     <div class="tab1">
     <h1>BASIC DETAILS</h1>
@@ -96,22 +101,34 @@
     <div class="tab2">
         <h1>UPLOAD DOCUMENTS</h1>
         <label>Aadhar Card</label><span class="required-mark">*</span><br>
-        <a href="public\uploads\aadhar\Rajdeep5574805Jadhavaadhar.jpg" target="_blank">Click Here</a><br>
+        
         <a href=<%System.out.println(obj.getUp_aadhar());out.print("public/uploads/aadhar/"+obj.getUp_aadhar()); %> target="_blank">Click Here</a><br>
         <label>PAN Card</label><span class="required-mark">*</span><br>
         <a href=<%out.print("public/uploads/pan/"+obj.getUp_PAN()); %> target="_blank">Click Here</a><br>
         <label>10th Marksheet</label><span class="required-mark">*</span><br>
-        <a href=<%out.print("public/uploads/10thMarksheet/"+obj.getUp_tenth()); %> target="_blank">Click Here</a><br>
+        <a href=<%out.print("allottedpublic/uploads/10thMarksheet/"+obj.getUp_tenth()); %> target="_blank">Click Here</a><br>
         <label>12th Marksheet</label><span class="required-mark">*</span><br>
         <a href=<%out.print("public/uploads/12thMarksheet/"+obj.getUp_twelve()); %> target="_blank">Click Here</a><br>
+        
+        <hr>
+        <form action="verifyCandidate" method="post" style="display:inline">
+    	<h1>ALLOTMENT DETAILS</h1>
+        <label>Allotted Year</label><br>
+        <input type="text" name="allotted_year" placeholder="Enter Student's Class Year"><br>
+        <label>Allotted Division</label><br>
+        <input type="text" name="allotted_div" placeholder="Enter Student's Class Division"><br>
+        <label>Allotted Course</label><br>
+        <input type="text" name="allotted_course" placeholder="Enter Student's Course"><br>
+        	
+    	<input type="text" id="verification_status" name="verification_status" value='<%out.print(obj.getVerification_status()); %>' hidden>
+    	<input type="text" name="candidate_email" value=<%out.print(obj.getEmail()); %> hidden><br>
+    	<%session.setAttribute("AdmissionData", obj); %>
+    	<button class="verifyCandidateBtn" type="submit" style="position:absolute;right:20%;">VERIFY</button>
+    </form>
     </div>
     <button class="next" type="button">NEXT</button>
     
-    <form action="verifyCandidate" method="post" style="display:inline">
-    	<input type="text" name="candidate_email" value=<%out.print(obj.getEmail()); %> hidden>
-    	<%session.setAttribute("AdmissionData", obj); %>
-    	<button class="verifyCandidateBtn" type="submit">VERIFY</button>
-    </form>
+    
     
     
     
@@ -120,6 +137,15 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-<script src="public/js/javascript.js" type="text/javascript"></script>
-
+<script src="public/js/admissionForm.js" type="text/javascript"></script>
+<script type="text/javascript">
+	if(document.querySelector("#verification_status").value === "DONE")
+		{
+			document.querySelector(".verifyCandidateBtn").disabled = true;
+		}
+	else
+		{
+		document.querySelector(".verifyCandidateBtn").disabled = false;
+		}
+</script>
 </html>

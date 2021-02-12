@@ -129,9 +129,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="dashboardAdmin.jsp">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Information</a>
-        </li>
+       
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Others
@@ -167,19 +165,22 @@
 <section id="footer" style="position:absolute;bottom:0;">
 	
 	<div class="row">
-		<div class="col-4 footerBlocks">
+		<div class="col-6 footerBlocks">
 			<p class="footerHeading">CONTACT US</p>
 			<p class="subheading">Address: <span class="Address">201, Shreenath Complex, Near K9 Fitness,Sinhgad College Rd, Vadgaon, Pune-411041</span></p>
 			<p class="subheading">Email: <a href="mailto:rajdeepj1363@gmail.com">rajdeepj1363@gmail.com</a></p>
 			<p class="subheading">Phone: <a href="tel:+917030499720">+917030499720</a></p>
 		</div>
-		<div class="col-4 footerBlocks">
-		<p class="footerHeading">QUICK LINKS</p>
 		
-		</div>
-		<div class="col-4 footerBlocks">
+		<div class="col-6 footerBlocks">
 		<p class="footerHeading">ABOUT US</p>
-		
+			
+			<ul>
+				<li style="list-style-type:none">Developed By:</li>
+				<li style="list-style-type:none">Rajdeep Jadhav</li>
+				<li style="list-style-type:none">Shounak Dey</li>
+				<li style="list-style-type:none">Pranali Kadu</li>
+			</ul>
 		</div>
 	
 	</div>

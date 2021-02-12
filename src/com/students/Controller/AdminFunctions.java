@@ -135,7 +135,7 @@ public class AdminFunctions extends HttpServlet {
 				Statement st = ConnectionDB.con.createStatement();
 				st.executeUpdate("INSERT INTO teachers(name,mobile,address,dob,qualification,designation,classTeacher,teachingDivisions,teachingSubjects,uname,pwd) VALUES('"+name+"','"+mobile+"','"+address+"','"+dob+"','"+qualification+"','"+designation+"','"+classTeacher+"','"+teachingDivisions+"','"+teachingSubjects+"','"+email+"','"+pwd+"')");
 				System.out.println("Faculty Updated!");
-				response.sendRedirect("dashboardAdmin.jsp?FacultyAdded=success");
+				response.sendRedirect("dashboardAdmin.jsp?FacultyAdded=success&password="+pwd);
 			}
 			catch(SQLException s)
 			{

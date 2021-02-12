@@ -53,9 +53,10 @@ response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
     	{
     		
     		out.print("<tr><th scope='row'>"+String.valueOf(i)+"</th><td>"+result.getString("name")+"</td><td>"+result.getString("exam")+"</td><td>"+result.getString("date")+"</td> <td><a href="+"public/uploads/results/"+result.getString("result")+" target='_blank'>View</a></td></tr>");
-    		
+
     		i++;
     	}
+    	
     %>
    
   </tbody>

@@ -102,7 +102,12 @@
 		</div>
 		<div class="col-4 footerBlocks">
 		<p class="footerHeading">ABOUT US</p>
-		
+			<p>	Developed By: </p><br>
+			<ul>
+				<li style="list-style-type:none">Rajdeep Jadhav</li>
+				<li style="list-style-type:none">Shounak Dey</li>
+				<li style="list-style-type:none">Pranali Kadu</li>
+			</ul>
 		</div>
 	
 	</div>

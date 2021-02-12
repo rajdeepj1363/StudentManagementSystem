@@ -83,6 +83,7 @@ public class FetchAdmissionInfo extends HttpServlet {
 					student.setUp_PAN(res.getString("pan_file"));
 					student.setUp_tenth(res.getString("tenth_marksheet"));
 					student.setUp_twelve(res.getString("twelveth_marksheet"));
+					student.setVerification_status(res.getString("verification"));
 					return student;
 					
 				}
